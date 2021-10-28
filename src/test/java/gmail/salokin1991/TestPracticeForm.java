@@ -25,28 +25,27 @@ public class TestPracticeForm {
     @Test
     void firstTest() {
 
-        String uFN = "V";               //first name
+        String uFN = "V V";               //first name
         String uLN = "P";               //last name
         String uE = "Some@a.com";       //email
         String mN = "1234567890";       //mobile number
-        String bD = "27";                //birth day
-//        String bD = "7";                //birth day error
+        String bD1 = "27";                //birth day
+//        String bD2 = "7";                //birth day error
         String bM = "10";               //birth month
         String bY = "1952";             //birth year
-        String iSubj = "History";       //subject
+        String iSubj1 = "History";       //subject
+        String iSubj2 = "Sports";       //subject
         String cA = "Covid bunker";     //current address
 
         String cState = "NCR";          //state
         String cCity = "Delhi";         //city
 
-        String meme = "https://images.theconversation.com/files/177834/original/file-20170712-14488-19lw3sc.jpg";
+        String meme = "src/test/pictures/meme.jpg";
                                         //picture link
 
         open("https://demoqa.com/automation-practice-form");
 
         $("#close-fixedban").click();           //close ad
-
-        $("#submit").scrollIntoView(true);      //submit button
 
         $("#firstName").setValue(uFN);          //input first name
         $("#lastName").setValue(uLN);           //input lastname
@@ -57,22 +56,29 @@ public class TestPracticeForm {
         $("#dateOfBirthInput").click();         //input birth date
         $(".react-datepicker__month-select").selectOptionByValue(bM);
         $(".react-datepicker__year-select").selectOptionByValue(bY);
-        $$(".react-datepicker__day").find(text(bD)).click();
+        $$(".react-datepicker__day").find(text(bD1)).click();
+//        $$(".react-datepicker__day").find(text(bD2)).click();
 
+
+        $(byText("Other")).click();            //sex input
 
         $("#subjectsInput").click();            //input subject
-        $("#subjectsInput").setValue(iSubj).pressEnter();
+        $("#subjectsInput").setValue(iSubj1).pressEnter();
+        $(byText(iSubj2)).click();
+
+        $("#submit").scrollIntoView(true);      //view submit button
+
+        $("#state").click();                    //input state and city
+        $(byText(cState)).click();
+        $("#city").click();
+        $(byText(cCity)).click();
 
 
+        File image = new File(meme);                     //upload image
+        $("#uploadPicture").uploadFile(image);
 
-//        File image = new File(meme);
-//        $("#uploadPicture").uploadFile(image);
+        $("#submit").click();
 
-//        $("#state").click();
-//        $(byText(cState)).click();
-//        $("#city").click();
-//        $(byText(cCity)).click();
-//        $("#submit").click();
 
 
     }
