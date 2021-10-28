@@ -79,7 +79,13 @@ public class TestPracticeForm {
 
         $("#submit").click();
 
+//Check test
 
-
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
+        $x("/html/body/div[4]/div/div/div[2]/div/table").shouldHave(text(uFN+" "+uLN),
+                text(uE), text("Other"), text(mN), text("27 October,1952"),
+                text(iSubj1), text(iSubj2), text("meme.jpg"),
+                text(cA), text(cState+" "+cCity));
+        $("#closeLargeModal").click();
     }
 }
