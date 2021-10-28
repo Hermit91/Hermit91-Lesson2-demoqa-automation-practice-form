@@ -29,8 +29,8 @@ public class TestPracticeForm {
         String uLN = "P";               //last name
         String uE = "Some@a.com";       //email
         String mN = "1234567890";       //mobile number
-        String bD1 = "27";                //birth day
-//        String bD2 = "7";                //birth day error
+//        String bD1 = "27";                //birth day
+        String bD2 = "7";                //birth day error
         String bM = "10";               //birth month
         String bY = "1952";             //birth year
         String iSubj1 = "History";       //subject
@@ -56,8 +56,8 @@ public class TestPracticeForm {
         $("#dateOfBirthInput").click();         //input birth date
         $(".react-datepicker__month-select").selectOptionByValue(bM);
         $(".react-datepicker__year-select").selectOptionByValue(bY);
-        $$(".react-datepicker__day").find(text(bD1)).click();
-//        $$(".react-datepicker__day").find(text(bD2)).click();
+//        $$(".react-datepicker__day").find(text(bD1)).click();
+        $$(".react-datepicker__day").find(text(bD2)).click();
 
 
         $(byText("Other")).click();            //sex input
@@ -79,7 +79,7 @@ public class TestPracticeForm {
 
         $("#submit").click();
 
-
+//
 
     }
 }
